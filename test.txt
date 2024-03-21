@@ -1,0 +1,138 @@
+from colorama import Fore, Back, Style
+import sys
+import os
+import colorama
+import time
+import subprocess
+def clear():
+    """Clear console screen."""
+    sys.stdout.write("\033[H\033[J")
+    sys.stdout.flush()
+
+def display_menu():
+    """Display menu options."""
+    clear()
+    print(Back.YELLOW + Style.BRIGHT + "---- Menu ----")
+    print(Back.GREEN + "[1] Started System")
+    print("[2] Encrypt/Decrypt file")
+    print("[3] More Information")
+    print("[4] Check error")
+    print("[5] FAQ")
+    print("[0] Exit")
+    print()
+    print()
+    print(Back.RED + "NOTE: If system got error, please try to install all module")
+    print()
+    print()
+    print(Fore.BLUE + Style.BRIGHT + "This tool is a paid tool that can currently be found in options [3]")
+    print(Style.RESET_ALL)
+
+def option1():
+    """Action for Option 1."""
+    print(Fore.GREEN + "Starting system...")
+    time.sleep(2)
+    print(Fore.GREEN + "Check if the file is missing.")
+    time.sleep(2)
+    def check_file(file_path):
+      if os.path.isfile(file_path):
+          print(f"File {file_path} exist.")
+      else:
+          print(f"File {file_path} does not exist.")
+          time.sleep(2)
+          print(Fore.RED + "Closing system... [3]")
+          time.sleep(1)
+          print(Fore.RED + "Closing system... [2]")
+          time.sleep(1)
+          print(Fore.RED + "Closing system... [1]")
+          time.sleep(1)
+          
+    check_file("system.py")
+    os.system("python system.py")
+
+def option2():
+    """Action for Option 2."""
+    print("If you got error please run 'Choice 4'.")
+    time.sleep(3)
+    print(Fore.CYAN + "Encrypt/Decrypt File")
+    print()
+    print(Fore.CYAN + "[1] Encrypt File")
+    print(Fore.CYAN + "[2] Decrypt File")
+    print()
+    print(Fore.RED + "NOTE: Having errors in options 1 and 2, please select option 3 to encode and decode and wait for us to fix it.")
+    print()
+    number = int(input("Enter choice: "))
+
+    if number == 1:
+        print("Running File...")
+        time.sleep(2)
+        subprocess.run(["python", "encrypt.py"])
+    elif number == 2:
+      print("Running File...")
+      time.sleep(2)
+      subprocess.run(["python", "decrypt.py"])
+      pass
+def option3():
+    print(Style.BRIGHT + "Discord: discord.gg/9CP67QfEaf")
+    print(Style.BRIGHT + "Owner: okashina_miko")
+    print(Style.BRIGHT + "Version: 1.0.0")
+    print(Style.BRIGHT + "Language: Python")
+    print(Style.BRIGHT + "Want more infomation? Join my discord server for more help this tool ;)")
+    time.sleep(10)
+    print(Fore.RED + "Closing after 10s")
+def option4():
+  print(Fore.GREEN + "Check if the file is missing.")
+  time.sleep(2)
+  def check_file(file_path):
+    if os.path.isfile(file_path):
+        print(f"File {file_path} exist.")
+    else:
+        print(f"File {file_path} does not exist.")
+        time.sleep(2)
+        print(Fore.RED + "Closing system... [3]")
+        time.sleep(1)
+        print(Fore.RED + "Closing system... [2]")
+        time.sleep(1)
+        print(Fore.RED + "Closing system... [1]")
+        time.sleep(1)
+        sys.exit()
+  check_file("system.py")
+  time.sleep(2)
+  check_file("encrypt.py")
+  time.sleep(2)
+  check_file("decrypt.py")
+  time.sleep(2)
+  check_file("system.py")
+  print(Back.GREEN + "Check complte! Starting file...")
+  time.sleep(3)
+  os.system("python main.py")
+def option5():
+  print(Fore.GREEN + "Go to this link to see FAQ: https://pastebin.com/ZfJeGai1")
+  print("Closing after 10s")
+  time.sleep(10)
+def main():
+    """Main function to display menu and handle user input."""  # Initialize Colorama
+    while True:
+        display_menu()
+        choice = input(Back.CYAN + "Enter your choice: ")
+
+        if choice == '1':
+            option1()
+        elif choice == '2':
+            option2()
+        elif choice == '3':
+            option3()
+        elif choice == '4':
+            option4()
+        elif choice == '5':
+            option5()
+        
+        elif choice == '0':
+            print(Back.RED + "Exiting...")
+            break
+        else:
+            print(Back.RED + "Invalid choice! Please enter a valid option.")
+            input(Back.GREEN + "Press Enter to continue...")
+
+if __name__ == "__main__":
+    main()
+  # haha
